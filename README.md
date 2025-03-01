@@ -31,6 +31,8 @@
 cd C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build
 vcvarsall.bat x64 10.0.18362.0
 
+git clone --recursive https://github.com/aseprite/aseprite.git
+
 cd C:\aseprite\
 mkdir build
 cd build
