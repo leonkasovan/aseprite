@@ -26,6 +26,18 @@
 * Undo/Redo for every operation and support for [non-linear undo](https://imgur.com/9I42fZK).
 * [More features &amp; tips](https://twitter.com/aseprite/status/1124442198651678720)
 
+## Build
+```
+cd C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build
+vcvarsall.bat x64 10.0.18362.0
+
+cd C:\aseprite\
+mkdir build
+cd build
+cmake -G Ninja -DLAF_BACKEND=skia -DSKIA_DIR=C:\deps\skia -DSKIA_LIBRARY_DIR=C:\deps\skia\out\Release-x64 -DSKIA_LIBRARY=C:\deps\skia\out\Release-x64\skia.lib -G Ninja ..
+ninja aseprite
+```
+
 ## Issues
 
 There is a list of
