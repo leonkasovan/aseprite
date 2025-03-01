@@ -31,18 +31,20 @@
 cd C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build
 vcvarsall.bat x64 10.0.18362.0
 
-git config --global core.compression 0
-git config --global http.postBuffer 1048576000
-git config --global http.maxRequestBuffer 100M
-git clone --depth=1 --recursive https://github.com/leonkasovan/aseprite.git
-git fetch --unshallow OR
-git fetch --depth=200
-git pull --all
+cd F:\Projects
 
-cd C:\aseprite\
+mkdir skia
+cd skia
+wget https://github.com/aseprite/skia/releases/download/m102-861e4743af/Skia-Windows-Release-x64.zip
+unzip Skia-Windows-Release-x64.zip
+rm Skia-Windows-Release-x64.zip
+cd ..
+
+git clone --recursive https://github.com/leonkasovan/aseprite.git
+cd aseprite
 mkdir build
 cd build
-cmake -G Ninja -DLAF_BACKEND=skia -DSKIA_DIR=C:\skia -DSKIA_LIBRARY_DIR=C:\skia\out\Release-x64 -DSKIA_LIBRARY=C:\skia\out\Release-x64\skia.lib -G Ninja ..
+cmake -G Ninja -DLAF_BACKEND=skia -DSKIA_DIR=..\..\skia -DSKIA_LIBRARY_DIR=..\..\skia\out\Release-x64 -DSKIA_LIBRARY=..\..\skia\out\Release-x64\skia.lib -G Ninja ..
 ninja aseprite
 ```
 
